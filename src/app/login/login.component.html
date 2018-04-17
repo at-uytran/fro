@@ -1,4 +1,4 @@
-'<div class="modal fade" id="sign-in-register-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-register-modal">
+<div class="modal fade" id="sign-in-register-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-register-modal">
             <div class="wrapper">
                 <div class="inner">
                     <div class="modal-dialog width-400px" role="document">
@@ -7,31 +7,42 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#tab-sign-in" aria-controls="tab-sign-in" role="tab" data-toggle="tab"><h1>Sign In</h1></a></li>
-                                    <li role="presentation"><a href="#tab-register" aria-controls="tab-register" role="tab" data-toggle="tab"><h1>Register</h1></a></li>
+                                    <li role="presentation" class="active"><a href="#tab-sign-in" aria-controls="tab-sign-in" role="tab" data-toggle="tab"><h1>Đăng nhập</h1></a></li>
+                                    <li role="presentation"><a href="#tab-register" aria-controls="tab-register" role="tab" data-toggle="tab"><h1>Đăng ký</h1></a></li>
                                 </ul>
                             </div>
                             <!--end modal-header-->
                             <div class="modal-body">
                                 <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade '. $activeTabSign .'" id="tab-sign-in">
-                                    <form id="form-sign">
+                                    <div role="tabpanel" class="" id="tab-sign-in">
+                                    <form id="form-sign" [formGroup]="loginForm">
                                         <div class="form-group">
-                                            <label for="form-sign-in-email">E-mail</label>
-                                            <input type="text" class="form-control" id="form-sign-in-email" name="sign_in_email" placeholder="Login E-mail">
+                                            <div [ngClass]="{'error': loginForm.controls['email'].errors && !loginForm.controls['email'].pristine}">
+                                                <label for="form-sign-in-email">E-mail</label>
+                                                <input type="text" class="form-control" id="form-sign-in-email" formControlName="email" placeholder="Login E-mail">
+                                                <div *ngIf="loginForm.controls['email'].errors && !loginForm.controls['email'].pristine" class="error-msg">
+                                                  <div [hidden]="!loginForm.controls['email'].errors.required">Email is required.</div>
+                                                  <div [hidden]="!loginForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <!--end form-group-->
                                         <div class="form-group">
-                                            <label for="form-sign-in-password">Password</label>
-                                            <input type="password" class="form-control" id="form-sign-in-password" name="sign_in_password" placeholder="*****">
+                                            <div [ngClass]="{'error': loginForm.controls['password'].errors && !loginForm.controls['password'].pristine}">
+                                                <label for="form-sign-in-password">Mật khẩu</label>
+                                                <input type="password" class="form-control" id="form-sign-in-password" formControlName="password"  placeholder="*****">
+                                                <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="error-msg">
+                                                  <div [hidden]="!loginForm.controls['password'].errors.required">Password is required.</div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <!--end form-group-->
                                         <div class="clearfix action">
                                             <div class="form-group pull-right">
-                                                <button type="submit" class="btn btn-primary btn-rounded">Sign In</button>
+                                                <button type="submit" class="btn btn-primary btn-rounded" [disabled]="loginForm.invalid" (click)="login()">Đăng nhập</button>
                                             </div>
                                             <div class="form-group pull-left">
-                                                <label><input type="checkbox" name="1">Login Automatically</label>
+                                                <label><input type="checkbox" name="1">Tự động đăng nhập</label>
                                             </div>
                                         </div>
                                         <!--end action-->
@@ -41,12 +52,12 @@
                                 <div role="tabpanel" class="tab-pane fade '. $activeTabRegister .'" id="tab-register">
                                     <form id="form-register">
                                         <div class="form-group">
-                                            <label for="form-register-name">Name</label>
+                                            <label for="form-register-name">Tên</label>
                                             <input type="text" class="form-control" id="form-register-name" name="register_name" placeholder="John">
                                         </div>
                                         <!--end form-group-->
                                         <div class="form-group">
-                                            <label for="form-register-surname">Surname</label>
+                                            <label for="form-register-surname">Họ</label>
                                             <input type="text" class="form-control" id="form-register-surname" name="register_surname" placeholder="Doe">
                                         </div>
                                         <!--end form-group-->
@@ -56,16 +67,16 @@
                                         </div>
                                         <!--end form-group-->
                                         <div class="form-group">
-                                            <label for="form-register-password">Password</label>
+                                            <label for="form-register-password">Mật khẩu</label>
                                             <input type="password" class="form-control" id="form-register-password" name="register_password" placeholder="*****">
                                         </div>
                                         <!--end form-group-->
                                         <div class="clearfix action">
                                             <div class="form-group pull-right">
-                                                <button type="submit" class="btn btn-primary btn-rounded">Sign In</button>
+                                                <button type="submit" class="btn btn-primary btn-rounded">Đăng nhập</button>
                                             </div>
                                             <div class="form-group pull-left">
-                                                <label><input type="checkbox" name="1">Login Automatically</label>
+                                                <label><input type="checkbox" name="1">Tự động đăng nhập</label>
                                             </div>
                                         </div>
                                         <!--end action-->
@@ -78,8 +89,8 @@
                         <!--end modal-body-->
                         <div class="modal-footer">
                             <div class="center">
-                                <div>Lost Password? <a href="#">Reset here</a></div>
-                                <div>New to Accommondo? <a href="#">Register an account</a></div>
+                                <div>Quên mật khẩu? <a href="#">Lấy lại mật khẩu</a></div>
+                                <div>Chưa phải thành viên? <a href="#">Đăng ký tài khoản</a></div>
                             </div>
                         </div>
                         <!--end modal-footer-->
@@ -89,4 +100,4 @@
                 <!--end modal-dialog-->
             </div>
         </div>
-    </div>'
+    </div>
