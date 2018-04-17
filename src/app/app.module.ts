@@ -17,7 +17,12 @@ import { PlaceDetailsComponent } from './place-details/place-details.component';
 // import services
 import { UsersService } from './services/users.service'
 import { PlacesService } from './services/places.service';
-import { SearchingComponent } from './searching/searching.component'
+import { SearchingComponent } from './searching/searching.component';
+import { FoodsComponent } from './foods/foods.component';
+import { SubmitPlaceComponent } from './submit-place/submit-place.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { PlaceImagePipe } from './shared/place-image.pipe';
+import { PlaceSearchResultsComponent } from './place-search-results/place-search-results.component'
 
 
 @NgModule({
@@ -29,7 +34,12 @@ import { SearchingComponent } from './searching/searching.component'
     DashBoardComponent,
     PlacesIndexComponent,
     PlaceDetailsComponent,
-    SearchingComponent
+    SearchingComponent,
+    FoodsComponent,
+    SubmitPlaceComponent,
+    ReviewsComponent,
+    PlaceImagePipe,
+    PlaceSearchResultsComponent
   ],
   imports: [
     BrowserModule,
