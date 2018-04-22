@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UsersService } from '../services/users.service'
 import { patternValidator } from '../shared/pattern-validator';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -9,14 +10,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
+  sub: Subscription;
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
     this.createForm();
-
   }
 
   private createForm() {
@@ -29,8 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    console.log("logining");
-    this.usersService.login(this.loginForm.value).subscribe(
+    this.sub = this.usersService.login(this.loginForm.value).subscribe(
       data => {
         let auth_token = data.headers.get('Authorization');
         localStorage.setItem('auth-token', auth_token)
@@ -39,8 +39,13 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log(error);
-        console.log("invalid");
       }
     );
+  }
+
+  ngOnDestroy() {
+    if(this.sub != undefined){
+      this.sub.unsubscribe();
+    }
   }
 }

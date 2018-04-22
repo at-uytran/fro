@@ -22,7 +22,6 @@ import { FoodsComponent } from './foods/foods.component';
 import { SubmitPlaceComponent } from './submit-place/submit-place.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { PlaceImagePipe } from './shared/place-image.pipe';
-import { PlaceSearchResultsComponent } from './place-search-results/place-search-results.component'
 
 
 @NgModule({
@@ -38,8 +37,7 @@ import { PlaceSearchResultsComponent } from './place-search-results/place-search
     FoodsComponent,
     SubmitPlaceComponent,
     ReviewsComponent,
-    PlaceImagePipe,
-    PlaceSearchResultsComponent
+    PlaceImagePipe
   ],
   imports: [
     BrowserModule,
