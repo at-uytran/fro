@@ -1,3 +1,93 @@
-<p>
-  searching works!
-</p>
+<div class="col-md-3 col-sm-4">
+    <div class="sidebar">
+        <div class="box filter">
+            <h2>Tìm kiếm</h2>
+            <form id="form-filter" class="labels-uppercase">
+                <div class="form-group">
+                    <label for="form-filter-destination">Tên địa điểm, món ăn...</label>
+                    <input type="text" class="form-control" id="form-filter-destination" name="destination" placeholder="Tên địa điểm, món ăn...">
+                </div>
+                <!--end form-group-->
+                <!--end form-group-inline-->
+                <div class="center">
+                    <a href="#filter-advanced-search" class="link icon" data-toggle="collapse" aria-expanded="false" aria-controls="filter-advanced-search">Tìm kiếm nâng cao<i class="fa fa-plus"></i></a>
+                </div>
+                <div class="collapse" id="filter-advanced-search">
+                    <div class="form-group">
+                        <select>
+                            <option>Tỉnh thành</option>
+                            <option>Đà Nẵng</option>
+                            <option>Quảng Nam</option>
+                            <option>Thừa Thiên Huế</option>
+                            <option>Hà Nội</option>
+                        </select>
+                    </div>
+                    <div class="wrapper">
+                        <section>
+                            <h3>Thông tin </h3>
+                            <ul class="checkboxes">
+                                <li><label><input type="checkbox" name="hotel">Nhà hàng<span>67</span></label></li>
+                                <li><label><input type="checkbox" name="apartment">Cà phê<span>31</span></label></li>
+                                <li><label><input type="checkbox" name="breakfast-only">Quán nhậu<span>68</span></label></li>
+                                <li><label><input type="checkbox" name="spa-wellness">Ăn vặt<span>52</span></label></li>
+                            </ul>
+                            <div class="collapse" id="all-property-types">
+                                <ul class="checkboxes">
+                                    <li><label><input type="checkbox" name="ski-center">Quận Thanh Khê<span>67</span></label></li>
+                                    <li><label><input type="checkbox" name="cottage">Quận Liên Chiểu<span>31</span></label></li>
+                                    <li><label><input type="checkbox" name="hostel">Quận Hải Châu<span>68</span></label></li>
+                                    <li><label><input type="checkbox" name="boat">Quận Sơn Trà<span>52</span></label></li>
+                                </ul>
+                            </div>
+                            <!--end checkboxes-->
+                            <a href="#all-property-types" class="link" data-toggle="collapse" aria-expanded="false" aria-controls="all-property-types">Show all</a>
+                        </section>
+                        <!--end section-->
+                        <section>
+                            <h3>Quận huyện</h3>
+                            <ul class="checkboxes no-bottom-margin">
+                                <li><label><input type="checkbox" name="ski-center">Quận Thanh Khê<span>67</span></label></li>
+                                <li><label><input type="checkbox" name="cottage">Quận Liên Chiểu<span>31</span></label></li>
+                                <li><label><input type="checkbox" name="hostel">Quận Hải Châu<span>68</span></label></li>
+                                <li><label><input type="checkbox" name="boat">Quận Sơn Trà<span>52</span></label></li>
+                            </ul>
+                            <!--end checkboxes-->
+                        </section>
+                        <!--end section-->
+                    </div>
+                    <!--end filter-advanced-search-->
+                </div>
+                <!--end collapse-->
+                <div class="form-group center">
+                    <button type="submit" class="btn btn-primary btn-rounded form-control">Tìm kiếm</button>
+                </div>
+            </form>
+            <!--end form-filter-->
+        </div>
+        <!--end filter-->
+        <div class="box">
+            <h2>Thông tin thêm</h2>
+            <div id="weather" class="information information-detail">
+              <dl class="info">
+                <dt>Check-in:</dt>
+                <dd>14:00 - 00:00</dd>
+                <dt>Check-out:</dt>
+                <dd><strong>Late Check-out: until 12:00 </strong></dd>
+                <dt>Cancellation:</dt>
+                <dd>Cancellation and prepayment policies vary according to room type.</dd>
+                <dt>Children:</dt>
+                <dd>All children are welcome.</dd>
+                <dt>Pets:</dt>
+                <dd>Pets are not allowed</dd>
+            </dl>
+            </div>
+            <!--end weather-->
+        </div>
+        <!--end box-->
+        <a href="#" class="advertising-banner">
+            <span class="banner-badge">Advertising</span>
+            <img src="assets/img/ad-banner-02.jpg" alt="">
+        </a>
+    </div>
+    <!--end sidebar-->
+</div>
