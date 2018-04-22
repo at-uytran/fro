@@ -15,7 +15,8 @@ export class PlacesIndexComponent implements OnInit {
       console.log(res);
       this.places = res.data.places;
     }, error =>{
-      console.log("error");
+
     });
   }
+
 }
