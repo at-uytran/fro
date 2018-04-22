@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PlacesService } from '../services/places.service';
 
 @Component({
@@ -7,7 +7,9 @@ import { PlacesService } from '../services/places.service';
   styleUrls: ['./places-index.component.css']
 })
 export class PlacesIndexComponent implements OnInit {
-  places: any;
+  // places: any;
+  @Input() places: any;
+
   constructor(private placesService: PlacesService) { }
 
    ngOnInit() {
@@ -15,8 +17,7 @@ export class PlacesIndexComponent implements OnInit {
       console.log(res);
       this.places = res.data.places;
     }, error =>{
-
+      console.log("error");
     });
   }
-
 }

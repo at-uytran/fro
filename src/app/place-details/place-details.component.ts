@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../services/places.service';
 import { ActivatedRoute, Router } from '@angular/router';
+// import pipe
+import { PlaceImagePipe } from '../shared/place-image.pipe'
 
 
 @Component({
@@ -12,21 +14,27 @@ export class PlaceDetailsComponent implements OnInit {
   id: number;
   sub: any;
   place: any;
+  foods: any;
+  comments: any;
 
   constructor(private placesService: PlacesService,
-              private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit() {
+              private activatedRoute: ActivatedRoute) {
     this.sub = this.activatedRoute.params.subscribe(params => {
        this.id = +params['id'];
      });
+    this.place = "";
+    this.foods = "";
+    this.comments = "";
+  }
+
+  ngOnInit() {
+
     this.placesService.show(this.id).subscribe(res=>{
       this.place = res.data.place;
-      console.log(res);
-      console.log(this.place.name);
+      this.foods = res.data.foods;
+      this.comments = res.data.comments;
     }, error=> {
       console.log("error");
     })
   }
-
 }

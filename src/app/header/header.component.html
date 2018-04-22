@@ -11,12 +11,6 @@
                             </div>
                             <!--end left-->
                             <div class="right">
-                                <div class="element">
-                                    <select>
-                                        <option>$</option>
-                                        <option>€</option>
-                                    </select>
-                                </div>
                                 <!--end element-->
                                     <div class="element"  *ngIf="!loggedIn">
                                         <a href="#tab-sign-in" data-toggle="modal" data-tab="true" data-target="#sign-in-register-modal">Đăng nhập</a>
@@ -25,16 +19,20 @@
                                     <div class="element"  *ngIf="!loggedIn">
                                         <a href="#tab-register" data-toggle="modal" data-tab="true" data-target="#sign-in-register-modal">Đăng ký</a>
                                     </div>
+                                    <div class="element"  *ngIf="loggedIn">
+                                        <a href="javascript:void(0)">
+                                        <img src="{{currentUser.avatar}}" alt="">
+                                        </a>
+                                    </div>
                                     <div class="element" *ngIf="loggedIn">
                                         <a href="javascript:void(0)" (click)="logout()">Đăng xuất</a>
                                     </div>
                                 <!--end element-->
                                 <div class="element">
                                     <select>
+                                        <option>VI</option>
                                         <option>EN</option>
-                                        <option>DE</option>
-                                        <option>RU</option>
-                                        <option>ES</option>
+                                        <option>JP</option>
                                     </select>
                                 </div>
                                 <!--end element-->
@@ -57,12 +55,12 @@
                     <div class="right" >
                         <nav id="primary-nav">
                             <ul>
-                                <li class="active"><a href="index.html">Trang chủ</a></li>
+                                <li class="active"><a [routerLink]="['/home/']">Trang chủ</a></li>
                                 <li><a href="about-us.html">Về chúng tôi</a></li>
                                 <li>
                                     <a href="#" class="has-child">Khám phá</a>
                                     <ul class="child-nav">
-                                        <li><a [routerLink]="['/places']">Địa  điểm</a></li>
+                                        <li><a [routerLink]="['/places/']">Địa  điểm</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -96,7 +94,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="contact-us.html">Liên hệ chúng tôi</a></li>
-                                <li class="submit"><a href="submit.html"><span>Thêm địa điểm</span><i data-toggle="tooltip" data-placement="top" title="Submit"><img src="assets/img/plus.png" alt=""></i></a></li>
+                                <li class="submit"><a [routerLink]="['/submit-place/']"><span>Thêm địa điểm</span><i data-toggle="tooltip" data-placement="top" title="Submit"><img src="assets/img/plus.png" alt=""></i></a></li>
                             </ul>
                         </nav>
                         <!--end nav-->
