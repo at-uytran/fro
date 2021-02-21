@@ -29,7 +29,7 @@
                                             <div class="mark-circle description" data-toggle="tooltip" data-placement="right" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis erat vel quam aliquet hendrerit semper eget elit. Aenean tincidunt ultrices bibendum. Proin nisi erat, iaculis non pulvinar a, scelerisque ut est. "><i class="fa fa-question"></i></div>
                                             <div class="mark-circle map" data-toggle="tooltip" data-placement="right" title="Show on map"><i class="fa fa-map-marker"></i></div>
                                             <div class="mark-circle top" data-toggle="tooltip" data-placement="right" title="Top accommodation"><i class="fa fa-thumbs-up"></i></div>
-                                            <a href="places/{{place.id}}" class="wrapper">
+                                            <a (click)="viewDettail(place.id)" class="wrapper">
                                                 <div class="gallery">
                                                     <img src="assets/img/items/01.jpg" alt="">
                                                     <img src="#" class="owl-lazy" alt="" data-src="assets/img/items/02.jpg">
@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="info">
                                                 <figure class="label label-info">{{place.place_category.name}}</figure>
-                                                <a href="places/{{place.id}}"><h3>{{place.name}}</h3></a>
+                                                <a (click)="viewDettail(place.id)"><h3>{{place.name}}</h3></a>
                                                 <figure class="location">{{place.address}}</figure>
                                             </div>
                                         </div>

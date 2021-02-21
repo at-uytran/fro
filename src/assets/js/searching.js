@@ -5,6 +5,7 @@ $(document).ready(function(){
   });
 
   submitSearchForm = function() {
+    var baseUrl = 'http://localhost:3000/api/v1/';
     var name_params = $('#form-filter-destination').val();
     var category_ids = [];
     $('#searching input:checked').each(function() {
@@ -16,7 +17,7 @@ $(document).ready(function(){
     var place_params =
 
     $.ajax({
-      url: 'http://localhost:3000/api/v1/places',
+      url: baseUrl+'places',
       type: 'GET',
       data: {category_ids: JSON.stringify(category_ids) , "q[name_cont]": name_params},
       success: function(result) {
